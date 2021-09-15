@@ -1,0 +1,111 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "app": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "aot": true,
+            "tsConfig": "tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
+            "preserveSymlinks": true,
+            "assets": [
+             
+            ],
+            "styles": [
+           
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src"]
+            },
+            "scripts": [
+            ]
+          },
+          "configurations": {
+            "develop": {
+              "optimization": false,
+              "outputHashing": "all",
+              "sourceMap": true,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false
+            },
+            "release": {
+              "optimization": false,
+              "outputHashing": "none",
+              "sourceMap": true,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": false,
+              "vendorChunk": true,
+              "buildOptimizer": false
+            },
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "browserTarget": "app:build"
+          },
+          "configurations": {
+            "develop": {
+              "browserTarget": "app:build:develop"
+            },
+            "release": {
+              "browserTarget": "app:build:release"
+            },
+            "production": {
+              "browserTarget": "app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "editor:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "eslintConfig": ".eslintrc.json",
+            "lintFilePatterns": ["src/**.ts", "main.ts"]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "app"
+}
