@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, NgModule, OnInit } from "@angular/core";
-import { QingCore } from "qing-core";
+import { PixoworCore } from "pixowor-core";
 import pkg from "../package.json";
 import { TranslocoService } from "@ngneat/transloco";
 
@@ -15,9 +15,9 @@ export class TestComponent implements OnInit {
   test: string;
   translocoService: TranslocoService;
 
-  constructor(private qingCore: QingCore) {
+  constructor(private pixoworCore: PixoworCore) {
     this.translocoService =
-      qingCore.GetService<TranslocoService>(TranslocoService);
+      pixoworCore.serviceManager.getService<TranslocoService>(TranslocoService);
   }
 
   ngOnInit() {

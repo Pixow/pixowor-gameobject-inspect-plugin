@@ -1,28 +1,19 @@
-import {Plugin, QingCore} from 'qing-core'
+import {Plugin, PixoworCore, UIEvents} from 'pixowor-core'
 import { TestComponent } from './test.component';
-import pkg from "../package.json";
+import manifest from "../manifest.json";
 import { Component, Type } from '@angular/core';
 import zhCN from "./i18n/zh-CN.json"
 import en from './i18n/en.json'
 
 export class TestPlugin extends Plugin {
-  name = pkg.name;
-  version = pkg.version;
-  description = pkg.description;
-  author = pkg.author;
-
-  constructor(private qingCore: QingCore) {
-    super();
-  }
-
-  getDependencies() {
-    return [];
+  constructor(pixoworCore: PixoworCore) {
+    super(pixoworCore, manifest);
   }
 
   async prepare(): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.qingCore
-        .InstallI18n({
+      this.pixoworCore.fileSystemManager
+        .installI18n({
           en: en,
           "zh-CN": zhCN,
         })
@@ -35,13 +26,24 @@ export class TestPlugin extends Plugin {
   }
 
   activate() {
-    this.qingCore.RegistComponent(this.name, <Type<Component>>TestComponent);
-    this.qingCore.ActivateInMenu(3, 1, "测试插件", () => {
-      this.qingCore.OpenDialog(this.name);
+    this.colorLog(`${this.name} activate, Pid: ${this.pid}`);
+    this.pixoworCore.stateManager.registerComponent(
+      this.pid,
+      <Component>TestComponent
+    );
+    this.pixoworCore.workspace.emit(UIEvents.INJECT_PLUGIN_MENU, {
+      pid: this.pid,
+      label: "测试插件",
+      command: () => {
+        console.log(`Open dialog ${this.pid}`);
+        this.pixoworCore.workspace.openDialog(this.pid);
+      },
     });
   }
 
   deactivate() {
-    this.qingCore.DeactivateInMenu(3, 1);
+    this.pixoworCore.workspace.emit(UIEvents.UNINJECT_PLUGIN_MENU, {
+      pid: this.pid,
+    });
   }
 }

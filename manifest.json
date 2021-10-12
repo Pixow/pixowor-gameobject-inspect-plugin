@@ -1,0 +1,12 @@
+{
+  "pid": "pixowor-plugin-sample",
+  "name": "Pixowor Plugin Sample",
+  "author": "moJiXiang",
+  "version": "1.0.45",
+  "description": "测试插件示例",
+  "minAppVersion": "1.0.0",
+  "authorUrl": "https://github.com/moJiXiang",
+  "dependencies": {
+	  "pixowor-dialog": "1.0.0"
+  }
+}

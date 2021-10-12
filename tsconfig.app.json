@@ -11,7 +11,7 @@
     "target": "ES5",
     "typeRoots": [
       "node_modules/@types",
-      "node_modules/qing-core/dist/types/src",
+      "node_modules/pixowor-core/dist/types/src",
     ],
     "types": ["node"],
     "baseUrl": ".",

@@ -4,7 +4,7 @@ import json from "@rollup/plugin-json";
 import angular from "rollup-plugin-angular";
 import { minify as minifyHtml } from "html-minifier";
 import nodeResolve from "rollup-plugin-node-resolve";
-
+import copy from "rollup-plugin-copy";
 import sass from "node-sass";
 import CleanCSS from "clean-css";
 
@@ -14,7 +14,6 @@ const htmlminOpts = {
   collapseWhitespace: true,
   removeComments: true,
 };
-
 
 export default {
   input: "compiler/src/index.js",
@@ -43,6 +42,7 @@ export default {
     nodeResolve({ jsnext: true, main: true }),
     generatePackageJson({
       baseContents: (pkg) => ({
+        pid: pkg.pid,
         name: pkg.name,
         description: pkg.description,
         version: pkg.version,
@@ -51,11 +51,14 @@ export default {
       }),
       output: "dist",
     }),
+    copy({
+      targets: [{ src: "manifest.json", dest: "dist" }],
+    }),
   ],
   external: [
     "@angular/core",
     "@angular/common",
-    "qing-core",
+    "pixowor-core",
     "@ngneat/transloco",
   ],
   onwarn: function (warning) {

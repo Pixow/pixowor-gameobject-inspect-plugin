@@ -1,7 +1,7 @@
 {
-  "name": "test-plugin",
+  "name": "pixowor-plugin-sample",
   "version": "1.0.45",
-  "description": "测试插件",
+  "description": "Pixowor插件示例",
   "author": "moJiXiang",
   "icon": "logo.png",
   "main": "dist/index.js",
