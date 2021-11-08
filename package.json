@@ -1,7 +1,7 @@
 {
-  "name": "pixowor-plugin-sample",
-  "version": "1.0.45",
-  "description": "Pixowor插件示例",
+  "name": "pixowor-hierarchy-tree-plugin",
+  "version": "1.0.0",
+  "description": "场景层级树插件",
   "author": "moJiXiang",
   "icon": "logo.png",
   "main": "dist/index.js",
@@ -29,10 +29,12 @@
     "typescript": "4.0.2"
   },
   "dependencies": {
+    "@angular/cdk": "^12.2.9",
     "@angular/common": "11.2.3",
     "@angular/core": "11.2.3",
     "@angular/router": "11.2.3",
     "@ngneat/transloco": "^2.22.0",
+    "primeng": "^10.0.0",
     "rxjs": "6.6.3"
   }
 }

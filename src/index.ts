@@ -1,3 +1,3 @@
-import { TestPlugin } from "./test.plugin";
+import { HierarchyTreePlugin } from "./hierarchy-tree.plugin";
 
-export default TestPlugin;
+export default HierarchyTreePlugin;

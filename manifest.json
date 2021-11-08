@@ -1,9 +1,9 @@
 {
-  "pid": "pixowor-plugin-sample",
-  "name": "Pixowor Plugin Sample",
+  "pid": "pixowor-hierarchy-tree-plugin",
+  "name": "Pixowor Hierarchy Tree",
   "author": "moJiXiang",
-  "version": "1.0.45",
-  "description": "测试插件示例",
+  "version": "1.0.0",
+  "description": "场景层级树插件",
   "minAppVersion": "1.0.0",
   "authorUrl": "https://github.com/moJiXiang",
   "dependencies": {
