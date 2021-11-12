@@ -60,6 +60,7 @@ export default {
     "@angular/common",
     "pixowor-core",
     "@ngneat/transloco",
+    "game-capsule",
   ],
   onwarn: function (warning) {
     if (

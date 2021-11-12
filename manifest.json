@@ -1,11 +1,12 @@
 {
-  "pid": "pixowor-hierarchy-tree-plugin",
-  "name": "Pixowor Hierarchy Tree",
+  "pid": "pixowor-game-resource-plugin",
+  "name": "Pixowor Game Resource",
   "author": "moJiXiang",
   "version": "1.0.0",
-  "description": "场景层级树插件",
+  "description": "游戏资源管理",
   "minAppVersion": "1.0.0",
   "authorUrl": "https://github.com/moJiXiang",
+  "url": "https://github.com/Pixow/pixowor-game-resource-plugin.git",
   "dependencies": {
 	  "pixowor-dialog": "1.0.0"
   }

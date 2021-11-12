@@ -1,11 +1,11 @@
 import {Plugin, PixoworCore, UIEvents} from 'pixowor-core'
-import { HierarchyTreeComponent } from "./hierarchy-tree.component";
+import { GameResourceComponent } from "./game-resource.component";
 import manifest from "../manifest.json";
 import { Component, Type } from '@angular/core';
 import zhCN from "./i18n/zh-CN.json"
 import en from './i18n/en.json'
 
-export class HierarchyTreePlugin extends Plugin {
+export class GameResourcePlugin extends Plugin {
   constructor(pixoworCore: PixoworCore) {
     super(pixoworCore, manifest);
   }
@@ -28,16 +28,15 @@ export class HierarchyTreePlugin extends Plugin {
   activate() {
     this.colorLog(`${this.name} activate, Pid: ${this.pid}`);
     this.pixoworCore.stateManager.registerComponent(
-      this.pid,
-      <Component>HierarchyTreeComponent
+      "GameResource",
+      <Component>GameResourceComponent
     );
-    this.pixoworCore.workspace.emit(UIEvents.INJECT_PLUGIN_MENU, {
-      pid: this.pid,
-      label: "Hierarchy",
-      command: () => {
-        console.log(`Open dialog ${this.pid}`);
-        this.pixoworCore.workspace.openDialog(this.pid);
-      },
+
+    console.log("GameResource Plugin Load in Sidebar ")
+
+    this.pixoworCore.workspace.emit(UIEvents.LOAD_IN_SIDEBAR, {
+      componentName: "GameResource",
+      header: "游戏资源管理"
     });
   }
 

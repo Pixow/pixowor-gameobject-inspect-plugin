@@ -1,3 +1,3 @@
-import { HierarchyTreePlugin } from "./hierarchy-tree.plugin";
+import { GameResourcePlugin } from "./game-resource.plugin";
 
-export default HierarchyTreePlugin;
+export default GameResourcePlugin;
