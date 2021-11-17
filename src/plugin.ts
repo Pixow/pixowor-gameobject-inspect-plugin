@@ -41,8 +41,6 @@ export class GameResourcePlugin extends Plugin {
   }
 
   deactivate() {
-    this.pixoworCore.workspace.emit(UIEvents.UNINJECT_PLUGIN_MENU, {
-      pid: this.pid,
-    });
+    
   }
 }

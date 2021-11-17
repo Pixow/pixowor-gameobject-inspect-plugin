@@ -1,3 +1,3 @@
-import { GameResourcePlugin } from "./game-resource.plugin";
+import { GameResourcePlugin } from "./plugin";
 
 export default GameResourcePlugin;
