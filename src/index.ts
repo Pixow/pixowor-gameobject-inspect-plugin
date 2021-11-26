@@ -1,3 +1,3 @@
-import { GameResourcePlugin } from "./plugin";
+import { GameObjectInspectPlugin } from "./plugin";
 
-export default GameResourcePlugin;
+export default GameObjectInspectPlugin;

@@ -1,0 +1,25 @@
+<div class="gameobject-inspect">
+  <h1>Gameobject inspect</h1>
+
+  <ng-container *ngIf="selectedGameObject">
+    <p-accordion [multiple]="true">
+      <gameobject-childnode
+        *ngFor="let child of selectedGameObjectChildren"
+        [childNode]="child"
+      ></gameobject-childnode>
+    </p-accordion>
+    <!-- <p-dropdown [options]="gameObjectComponents" [(ngModel)]="selectedGameComponent" (onChange)="" optionLabel="name"></p-dropdown> -->
+    <button
+      [ngxTippy]="componentList"
+      tippyName="template-ref"
+      [tippyProps]="templateRef"
+    >
+      Add Component
+    </button>
+    <div class="t-template" #componentList>
+      <h4 class="t-template__caption">Caption</h4>
+      <p class="t-template__info">Some content</p>
+      <button class="t-template__action">Action</button>
+    </div>
+  </ng-container>
+</div>

@@ -1,4 +1,3 @@
-import generatePackageJson from "rollup-plugin-generate-package-json";
 import typescript from "rollup-plugin-typescript2";
 import json from "@rollup/plugin-json";
 import angular from "rollup-plugin-angular";
@@ -40,17 +39,6 @@ export default {
     }),
     typescript(),
     nodeResolve({ jsnext: true, main: true }),
-    generatePackageJson({
-      baseContents: (pkg) => ({
-        pid: pkg.pid,
-        name: pkg.name,
-        description: pkg.description,
-        version: pkg.version,
-        author: pkg.author,
-        icon: pkg.icon,
-      }),
-      output: "dist",
-    }),
     copy({
       targets: [{ src: "manifest.json", dest: "dist" }],
     }),
@@ -58,9 +46,11 @@ export default {
   external: [
     "@angular/core",
     "@angular/common",
+    "@angular/animations",
     "pixowor-core",
     "@ngneat/transloco",
     "game-capsule",
+    "@PixelPai/game-core",
   ],
   onwarn: function (warning) {
     if (
